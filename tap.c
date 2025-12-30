@@ -7,7 +7,7 @@
 #include "eoiptapd.h"
 
 void tap_listen(struct environment_t *env) {
-    /#fd_set *fd_set = malloc(sizeof(fd_set));
+    //fd_set *fd_set = malloc(sizeof(fd_set));
     fd_set fds;	
 
     struct eoip_pkt_t *pkt = malloc(sizeof(struct eoip_pkt_t));
