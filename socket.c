@@ -11,7 +11,7 @@
 #define MAX_IP_HDR_SIZE 60
 
 void socket_listen(struct environment_t *env) {
-    #fd_set *fd_set = malloc(sizeof(fd_set));
+    //fd_set *fd_set = malloc(sizeof(fd_set));
     fd_set fds;
 
     size_t buf_size = sizeof(struct eoip_pkt_t) + MAX_IP_HDR_SIZE;
@@ -28,9 +28,9 @@ void socket_listen(struct environment_t *env) {
     fprintf(stderr, "[INFO] socket listener started\n");
 
     while (true) {
-        #FD_ZERO(fd_set);
-        #FD_SET(env->sock_fd, fd_set);
-        #select(env->sock_fd + 1, fd_set, NULL, NULL, NULL);
+        //FD_ZERO(fd_set);
+        //FD_SET(env->sock_fd, fd_set);
+        //select(env->sock_fd + 1, fd_set, NULL, NULL, NULL);
         FD_ZERO(&fds);
         FD_SET(env->sock_fd, &fds);
         select(env->sock_fd + 1, &fds, NULL, NULL, NULL);

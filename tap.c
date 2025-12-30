@@ -7,7 +7,7 @@
 #include "eoiptapd.h"
 
 void tap_listen(struct environment_t *env) {
-    #fd_set *fd_set = malloc(sizeof(fd_set));
+    /#fd_set *fd_set = malloc(sizeof(fd_set));
     fd_set fds;	
 
     struct eoip_pkt_t *pkt = malloc(sizeof(struct eoip_pkt_t));
@@ -22,9 +22,9 @@ void tap_listen(struct environment_t *env) {
 
     while (true) {
         // read from tap device
-        #FD_ZERO(fd_set);
-        #FD_SET(env->tap_fd, fd_set);
-        #select(env->tap_fd + 1, fd_set, NULL, NULL, NULL);
+        //FD_ZERO(fd_set);
+        //FD_SET(env->tap_fd, fd_set);
+        //select(env->tap_fd + 1, fd_set, NULL, NULL, NULL);
         FD_ZERO(&fds);
         FD_SET(env->sock_fd, &fds);
         select(env->sock_fd + 1, &fds, NULL, NULL, NULL);
